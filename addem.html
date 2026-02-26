@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADDEM</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar">
@@ -34,14 +36,47 @@
     <section class="section member-content">
         <div class="container">
             <h2>Project Overview</h2>
-            <p>During the final 2 weeks, I developed my own enhanced version of Spear Fisher with unique features and improvements. This page showcases my individual contributions and innovations to the base game.</p>
+            <p>
+                During weeks 4 and 5, I focused on strengthening the XR dimension of the game to make the experience
+                more immersive and reactive to the real environment.
+                My goal was to push the environmental realism further by improving water behavior, fish spawning ,
+                spatial interaction, and XR system stability.
+            </p>
 
+            <p>
+                I worked mainly on environmental immersion: rising water simulation, dynamic fish entry from doors and
+                windows, collision improvements, and XR event stability when removing and putting back the headset.
+                My objective was to create a more believable underwater atmosphere inside the user's real room.
+            </p>
             <h3>My Key Enhancements</h3>
             <ul class="feature-list">
-                <li><strong>Feature 1:</strong> Description of your first major feature/improvement</li>
-                <li><strong>Feature 2:</strong> Description of your second major feature/improvement</li>
-                <li><strong>Feature 3:</strong> Description of your third major feature/improvement</li>
-                <li><strong>Feature 4:</strong> Description of your fourth major feature/improvement</li>
+                <li>
+                    <div class="feature-text"><strong>Dynamic Rising Water System:</strong> Animated water level that
+                        progressively floods the
+                        room with improved visual effects (waves, color variations).</div>
+                    <div class="screenshot-placeholder">Screenshot 1</div>
+                </li>
+
+                <li>
+                    <div class="feature-text"><strong>Environmental Fish Spawning:</strong> Fish now spawn outside the
+                        room and enter through
+                        detected doors and windows for more realism.</div>
+                    <div class="screenshot-placeholder">Screenshot 2</div>
+                </li>
+
+                <li>
+                    <div class="feature-text"><strong>Improved Collision System:</strong> Reduced “ping-pong” bouncing
+                        effect when fish collide
+                        with walls or objects. Movement is now smoother and more natural.</div>
+                    <div class="screenshot-placeholder">Screenshot 2</div>
+                </li>
+
+                <li>
+                    <div class="feature-text"><strong>XR Stability Improvements:</strong> Fixed duplication issues when
+                        removing and wearing the
+                        headset again. Improved handling of XR pause/resume events.</div>
+                    <div class="screenshot-placeholder">Screenshot 2</div>
+                </li>
             </ul>
 
             <!-- Video Demo -->
@@ -56,15 +91,6 @@
             </div>
 
             <!-- Screenshots -->
-            <div class="screenshots-section">
-                <h3>Screenshots</h3>
-                <div class="screenshot-grid">
-                    <div class="screenshot-placeholder">Screenshot 1</div>
-                    <div class="screenshot-placeholder">Screenshot 2</div>
-                    <div class="screenshot-placeholder">Screenshot 3</div>
-                    <div class="screenshot-placeholder">Screenshot 4</div>
-                </div>
-            </div>
 
             <!-- Code Examples -->
             <div class="code-section">
@@ -93,7 +119,7 @@ public class AnotherFeature : MonoBehaviour
             </div>
 
             <!-- Technical Implementation -->
-            <div class="technical-section">
+            <!-- <div class="technical-section">
                 <h3>Technical Details</h3>
                 <ul>
                     <li><strong>Development Period:</strong> Weeks 4-5 (2 weeks)</li>
@@ -103,32 +129,50 @@ public class AnotherFeature : MonoBehaviour
                     <li><strong>Programming Language:</strong> C#</li>
                     <li><strong>Special Tools/Libraries:</strong> [Add any specific tools you used]</li>
                 </ul>
-            </div>
+            </div> -->
 
             <!-- Challenges & Solutions -->
             <div class="challenges-section">
                 <h3>Development Challenges & Solutions</h3>
-                <div class="challenge-item">
-                    <h4>Challenge 1</h4>
-                    <p>Description of a technical challenge you faced and how you solved it.</p>
-                </div>
-                <div class="challenge-item">
-                    <h4>Challenge 2</h4>
-                    <p>Description of another challenge and your solution.</p>
-                </div>
-            </div>
 
-            <!-- Download Links -->
-            <div class="download-section">
-                <h3>Download & Links</h3>
-                <div class="download-buttons">
-                    <a href="#" class="btn-download">Download Build</a>
-                    <a href="#" class="btn-github">GitHub Repository</a>
-                    <a href="index.html" class="btn-back">Back to Game Page</a>
+                <div class="challenge-item">
+                    <h4>XR Headset Duplication Issue</h4>
+                    <p>
+                        When the headset was removed and worn again, some UI and analysis elements were duplicated.
+                        I fixed this by improving object lifecycle management and ensuring temporary elements were
+                        properly destroyed during XR pause/resume events.
+                    </p>
+                </div>
+
+                <div class="challenge-item">
+                    <h4>Fish Collision "Ping-Pong" Effect</h4>
+                    <p>
+                        Fish were bouncing unnaturally against walls and objects.
+                        I adjusted the collision response and movement vectors to smooth direction changes and avoid
+                        unrealistic rebounds.
+                    </p>
+                </div>
+
+                <div class="challenge-item">
+                    <h4>Environmental Integration</h4>
+                    <p>
+                        Making fish enter naturally through windows and doors required synchronizing spatial mapping
+                        data with spawn logic.
+                        This significantly improved immersion.
+                    </p>
                 </div>
             </div>
-        </div>
     </section>
+
+    <div class="future-section">
+        <h3>Future Improvements</h3>
+        <ul>
+            <li>Add more advanced fish AI (schooling behavior, fleeing behavior).</li>
+            <li>Improve obstacle anticipation to avoid collisions before impact.</li>
+            <li>Add underwater visual effects (particles, bubbles, lighting filters).</li>
+            <li>Integrate spatial audio for a stronger immersive underwater atmosphere.</li>
+        </ul>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -143,4 +187,5 @@ public class AnotherFeature : MonoBehaviour
         </div>
     </footer>
 </body>
+
 </html>
