@@ -25,10 +25,16 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="member-hero">
-        <div class="container">
-            <h1>ADDEM's Version</h1>
-            <p class="subtitle">Individual Implementation - Weeks 4-5</p>
+    <section class="hero member-hero-enhanced">
+        <div class="hero-content">
+            <div class="hero-badge">Individual Project</div>
+            <h1 class="hero-title">ADDEM's Enhanced Version</h1>
+            <p class="hero-subtitle">Water System • Fish Spawning • Collision System • XR Stability </p>
+            <div class="hero-meta">
+                <span class="meta-item"> AR Experience</span>
+                <span class="meta-item">⏱ Weeks 4-5</span>
+                <span class="meta-item"> 4 Major Features</span>
+            </div>
         </div>
     </section>
 
@@ -50,43 +56,45 @@
             </p>
             <h3>My Key Enhancements</h3>
             <ul class="feature-list">
-                <li>
-                    <div class="feature-text"><strong>Dynamic Rising Water System:</strong> Animated water level that
-                        progressively floods the
-                        room with improved visual effects (waves, color variations).</div>
-                    <div class="screenshot-placeholder">Screenshot 1</div>
+                <li class="key-screenshot">
+                    <h4 class="card-title">Dynamic Rising Water System</h4>
+                    <p class="card-description">Animated water level that progressively floods the room with improved
+                        visual effects (waves, color variations).</p>
+                    <div class="screenshot-placeholder"><img src="asset/page-addem/water-effect.png"
+                            alt="Dynamic Rising Water System"></div>
                 </li>
 
-                <li>
-                    <div class="feature-text"><strong>Environmental Fish Spawning:</strong> Fish now spawn outside the
-                        room and enter through
-                        detected doors and windows for more realism.</div>
-                    <div class="screenshot-placeholder">Screenshot 2</div>
+                <li class="key-screenshot">
+                    <h4 class="card-title">Environmental Fish Spawning</h4>
+                    <p class="card-description">Fish now spawn outside the room and enter through detected doors and
+                        windows for more realism.</p>
+                    <div class="screenshot-placeholder"><img src="asset/page-addem/fish-spawn-effect.png"
+                            alt="Environmental Fish Spawning"></div>
                 </li>
 
-                <li>
-                    <div class="feature-text"><strong>Improved Collision System:</strong> Reduced “ping-pong” bouncing
-                        effect when fish collide
-                        with walls or objects. Movement is now smoother and more natural.</div>
-                    <div class="screenshot-placeholder">Screenshot 2</div>
+                <li class="key-screenshot">
+                    <h4 class="card-title">Improved Collision System</h4>
+                    <p class="card-description">Reduced "ping-pong" bouncing effect when fish collide with walls or
+                        objects. Movement is now smoother and more natural.</p>
+                    <div class="screenshot-placeholder"><img src="asset/page-addem/fish-collision.png"
+                            alt="Improved Collision System"></div>
                 </li>
 
-                <li>
-                    <div class="feature-text"><strong>XR Stability Improvements:</strong> Fixed duplication issues when
-                        removing and wearing the
-                        headset again. Improved handling of XR pause/resume events.</div>
-                    <div class="screenshot-placeholder">Screenshot 2</div>
+                <li class="key-screenshot">
+                    <h4 class="card-title">XR Stability Improvements</h4>
+                    <p class="card-description">Fixed duplication issues when removing and wearing the headset again.
+                        Improved handling of XR pause/resume events.</p>
+                    <div class="screenshot-placeholder"><img src="asset/page-addem/water-effect.png"
+                            alt="XR Stability Improvements"></div>
                 </li>
             </ul>
 
             <!-- Video Demo -->
             <div class="video-section">
                 <h3>Gameplay Demo</h3>
-                <div class="video-placeholder">
-                    <div class="video-box">
-                        <p>📹 Video Demo</p>
-                        <span>Insert your gameplay recording here</span>
-                    </div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/3fQ3RCez854" title="Gameplay Demo" allowfullscreen=""
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
                 </div>
             </div>
 
@@ -94,27 +102,47 @@
 
             <!-- Code Examples -->
             <div class="code-section">
-                <h3>Code Example 1: [Feature Name]</h3>
-                <pre><code>// Insert your code example here
-public class YourFeature : MonoBehaviour
-{
-    // Your implementation
-    void Start()
-    {
-        // Initialization code
-    }
-    
-    void Update()
-    {
-        // Update logic
-    }
-}</code></pre>
+                <h3>Code Example 1: Water Adapter</h3>
+                <pre><code>&lt;!-- HTML --&gt;
+&lt;a-entity id="water-surface" position="0 0 -2" water-adapter&gt;
 
-                <h3>Code Example 2: [Feature Name]</h3>
-                <pre><code>// Insert another code example here
-public class AnotherFeature : MonoBehaviour
-{
-    // Your implementation
+    &lt;a-entity id="water-fluid" visible="false"
+        water-shader="color: #004b7f; opacity: 0.75; speed: 1.5; waveHeight: 0.08; waveFrequency: 1.5"&gt;
+    &lt;/a-entity&gt;
+  
+    &lt;a-entity position="0 -0.05 0" visible="false"
+        water-shader="color: #006fb3; opacity: 0.35; speed: 0.8; waveHeight: 0.05; waveFrequency: 2.0"&gt;
+    &lt;/a-entity&gt;
+
+&lt;/a-entity&gt;
+
+&lt;!-- JS --&gt;
+
+function animateWater(el, toStr, durationMs, onComplete) {
+    var t = toStr.split(' ').map(Number);
+    return gsap.to(el.object3D.position, {
+        x: t[0],
+        y: t[1],
+        z: t[2],
+        duration: durationMs / 1000,
+        ease: 'power2.inOut',
+        onComplete: function () {
+            try { el.emit('animationcomplete'); } catch (e) { /* ignore */ }
+            if (onComplete) onComplete();
+        }
+    });
+}
+</code></pre>
+
+                <h3>Code Example 2: Fish Spawner</h3>
+                <pre><code>function spawnFish(intervalMs = 2000) {
+    setInterval(() => {
+        const fish = document.createElement('a-entity');
+        fish.className = 'fish';
+        fish.setAttribute('gltf-model', '#goldfish');
+        fish.setAttribute('position', '0 1 -2');
+        document.querySelector('#world-anchor')?.appendChild(fish);
+    }, intervalMs);
 }</code></pre>
             </div>
 
@@ -132,19 +160,9 @@ public class AnotherFeature : MonoBehaviour
             </div> -->
 
             <!-- Challenges & Solutions -->
-            <div class="challenges-section">
-                <h3>Development Challenges & Solutions</h3>
+            <!-- n -->
 
-                <div class="challenge-item">
-                    <h4>XR Headset Duplication Issue</h4>
-                    <p>
-                        When the headset was removed and worn again, some UI and analysis elements were duplicated.
-                        I fixed this by improving object lifecycle management and ensuring temporary elements were
-                        properly destroyed during XR pause/resume events.
-                    </p>
-                </div>
-
-                <div class="challenge-item">
+            <!-- <div class="challenge-item">
                     <h4>Fish Collision "Ping-Pong" Effect</h4>
                     <p>
                         Fish were bouncing unnaturally against walls and objects.
@@ -154,8 +172,8 @@ public class AnotherFeature : MonoBehaviour
                 </div>
 
                 <div class="challenge-item">
-                    <h4>Environmental Integration</h4>
-                    <p>
+                    <h4>Environmental Integration</h4> -->
+            <!-- <p>
                         Making fish enter naturally through windows and doors required synchronizing spatial mapping
                         data with spawn logic.
                         This significantly improved immersion.
@@ -172,20 +190,28 @@ public class AnotherFeature : MonoBehaviour
             <li>Add underwater visual effects (particles, bubbles, lighting filters).</li>
             <li>Integrate spatial audio for a stronger immersive underwater atmosphere.</li>
         </ul>
-    </div>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Spear Fisher - ADDEM's Version | SAE4.02 Project</p>
-            <div class="footer-links">
-                <a href="index.html">GAME</a>
-                <a href="addem.html">ADDEM</a>
-                <a href="celena.html">CELENA</a>
-                <a href="anna.html">ANNA</a>
+    </div> -->
+            <div class="download-section">
+                <h3>Download & Links</h3>
+                <div class="download-buttons">
+                    <a href="https://addemzbalah.github.io/SAE4.02/" class="btn-download">Web Site</a>
+                    <a href="https://github.com/AddemZbalah/SAE4.02" class="btn-github">GitHub Repository</a>
+                </div>
             </div>
         </div>
-    </footer>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2026 Spear Fisher - ADDEM's Version | SAE4.02 Project</p>
+                <div class="footer-links">
+                    <a href="index.html">GAME</a>
+                    <a href="addem.html">ADDEM</a>
+                    <a href="celena.html">CELENA</a>
+                    <a href="anna.html">ANNA</a>
+                </div>
+            </div>
+        </footer>
 </body>
 
 </html>
