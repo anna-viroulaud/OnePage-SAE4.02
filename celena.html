@@ -62,14 +62,15 @@
                 </div>
             </div>
 
-            <!-- Video Demo -->
             <div id="demo" class="video-section">
                 <h3>Gameplay Demo</h3>
-                <div class="video-placeholder">
-                    <div class="video-box">
-                        <p>📹 Video Demo</p>
-                        <span>Insert your gameplay recording here</span>
-                    </div>
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/3nCrmhx7nc0" 
+                        title="Spear Fisher - Celena's Version Gameplay" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
                 </div>
             </div>
 
@@ -98,6 +99,16 @@
 function loadWeapon() {
   return localStorage.getItem('weapon') || 'spear';
 }</code></pre>
+            </div>
+
+            <!-- Download Links -->
+            <div class="download-section">
+                <h3>Download & Links</h3>
+                <div class="download-buttons">
+                    <a href="https://celenahuj.github.io/SAE4.02/" class="btn-download">Download Build</a>
+                    <a href="https://github.com/Celenahuj/SAE4.02" class="btn-github">GitHub Repository</a>
+                    <a href="index.html" class="btn-back">Back to Game Page</a>
+                </div>
             </div>
 
         </div>
