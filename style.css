@@ -869,7 +869,6 @@ html {
 .video-container {
     position: relative;
     width: 100%;
-    max-width: 800px;
     margin: 0 auto;
     padding-bottom: 56.25%; /* 16:9 ratio */
     height: 0;
