@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADDEM</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar">
@@ -23,10 +25,16 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="member-hero">
-        <div class="container">
-            <h1>ADDEM's Version</h1>
-            <p class="subtitle">Individual Implementation - Weeks 4-5</p>
+    <section class="hero member-hero-enhanced">
+        <div class="hero-content">
+            <div class="hero-badge">Individual Project</div>
+            <h1 class="hero-title">ADDEM's Enhanced Version</h1>
+            <p class="hero-subtitle">Water System • Fish Spawning • Collision System • XR Stability </p>
+            <div class="hero-meta">
+                <span class="meta-item"> AR Experience</span>
+                <span class="meta-item">⏱ Weeks 4-5</span>
+                <span class="meta-item"> 4 Major Features</span>
+            </div>
         </div>
     </section>
 
@@ -34,66 +42,112 @@
     <section class="section member-content">
         <div class="container">
             <h2>Project Overview</h2>
-            <p>During the final 2 weeks, I developed my own enhanced version of Spear Fisher with unique features and improvements. This page showcases my individual contributions and innovations to the base game.</p>
+            <p>
+                During weeks 4 and 5, I focused on strengthening the XR dimension of the game to make the experience
+                more immersive and reactive to the real environment.
+                My goal was to push the environmental realism further by improving water behavior, fish spawning ,
+                spatial interaction, and XR system stability.
+            </p>
 
+            <p>
+                I worked mainly on environmental immersion: rising water simulation, dynamic fish entry from doors and
+                windows, collision improvements, and XR event stability when removing and putting back the headset.
+                My objective was to create a more believable underwater atmosphere inside the user's real room.
+            </p>
             <h3>My Key Enhancements</h3>
             <ul class="feature-list">
-                <li><strong>Feature 1:</strong> Description of your first major feature/improvement</li>
-                <li><strong>Feature 2:</strong> Description of your second major feature/improvement</li>
-                <li><strong>Feature 3:</strong> Description of your third major feature/improvement</li>
-                <li><strong>Feature 4:</strong> Description of your fourth major feature/improvement</li>
+                <li class="key-screenshot">
+                    <h4 class="card-title">Dynamic Rising Water System</h4>
+                    <p class="card-description">Animated water level that progressively floods the room with improved
+                        visual effects (waves, color variations).</p>
+                    <div class="screenshot-placeholder"><img src="asset/page-addem/water-effect.png"
+                            alt="Dynamic Rising Water System"></div>
+                </li>
+
+                <li class="key-screenshot">
+                    <h4 class="card-title">Environmental Fish Spawning</h4>
+                    <p class="card-description">Fish now spawn outside the room and enter through detected doors and
+                        windows for more realism.</p>
+                    <div class="screenshot-placeholder"><img src="asset/page-addem/fish-spawn-effect.png"
+                            alt="Environmental Fish Spawning"></div>
+                </li>
+
+                <li class="key-screenshot">
+                    <h4 class="card-title">Improved Collision System</h4>
+                    <p class="card-description">Reduced "ping-pong" bouncing effect when fish collide with walls or
+                        objects. Movement is now smoother and more natural.</p>
+                    <div class="screenshot-placeholder"><img src="asset/page-addem/fish-collision.png"
+                            alt="Improved Collision System"></div>
+                </li>
+
+                <li class="key-screenshot">
+                    <h4 class="card-title">XR Stability Improvements</h4>
+                    <p class="card-description">Fixed duplication issues when removing and wearing the headset again.
+                        Improved handling of XR pause/resume events.</p>
+                    <div class="screenshot-placeholder"><img src="asset/page-addem/water-effect.png"
+                            alt="XR Stability Improvements"></div>
+                </li>
             </ul>
 
             <!-- Video Demo -->
             <div class="video-section">
                 <h3>Gameplay Demo</h3>
-                <div class="video-placeholder">
-                    <div class="video-box">
-                        <p>📹 Video Demo</p>
-                        <span>Insert your gameplay recording here</span>
-                    </div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/3fQ3RCez854" title="Gameplay Demo" allowfullscreen=""
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
                 </div>
             </div>
 
             <!-- Screenshots -->
-            <div class="screenshots-section">
-                <h3>Screenshots</h3>
-                <div class="screenshot-grid">
-                    <div class="screenshot-placeholder">Screenshot 1</div>
-                    <div class="screenshot-placeholder">Screenshot 2</div>
-                    <div class="screenshot-placeholder">Screenshot 3</div>
-                    <div class="screenshot-placeholder">Screenshot 4</div>
-                </div>
-            </div>
 
             <!-- Code Examples -->
             <div class="code-section">
-                <h3>Code Example 1: [Feature Name]</h3>
-                <pre><code>// Insert your code example here
-public class YourFeature : MonoBehaviour
-{
-    // Your implementation
-    void Start()
-    {
-        // Initialization code
-    }
-    
-    void Update()
-    {
-        // Update logic
-    }
-}</code></pre>
+                <h3>Code Example 1: Water Adapter</h3>
+                <pre><code>&lt;!-- HTML --&gt;
+&lt;a-entity id="water-surface" position="0 0 -2" water-adapter&gt;
 
-                <h3>Code Example 2: [Feature Name]</h3>
-                <pre><code>// Insert another code example here
-public class AnotherFeature : MonoBehaviour
-{
-    // Your implementation
+    &lt;a-entity id="water-fluid" visible="false"
+        water-shader="color: #004b7f; opacity: 0.75; speed: 1.5; waveHeight: 0.08; waveFrequency: 1.5"&gt;
+    &lt;/a-entity&gt;
+  
+    &lt;a-entity position="0 -0.05 0" visible="false"
+        water-shader="color: #006fb3; opacity: 0.35; speed: 0.8; waveHeight: 0.05; waveFrequency: 2.0"&gt;
+    &lt;/a-entity&gt;
+
+&lt;/a-entity&gt;
+
+&lt;!-- JS --&gt;
+
+function animateWater(el, toStr, durationMs, onComplete) {
+    var t = toStr.split(' ').map(Number);
+    return gsap.to(el.object3D.position, {
+        x: t[0],
+        y: t[1],
+        z: t[2],
+        duration: durationMs / 1000,
+        ease: 'power2.inOut',
+        onComplete: function () {
+            try { el.emit('animationcomplete'); } catch (e) { /* ignore */ }
+            if (onComplete) onComplete();
+        }
+    });
+}
+</code></pre>
+
+                <h3>Code Example 2: Fish Spawner</h3>
+                <pre><code>function spawnFish(intervalMs = 2000) {
+    setInterval(() => {
+        const fish = document.createElement('a-entity');
+        fish.className = 'fish';
+        fish.setAttribute('gltf-model', '#goldfish');
+        fish.setAttribute('position', '0 1 -2');
+        document.querySelector('#world-anchor')?.appendChild(fish);
+    }, intervalMs);
 }</code></pre>
             </div>
 
             <!-- Technical Implementation -->
-            <div class="technical-section">
+            <!-- <div class="technical-section">
                 <h3>Technical Details</h3>
                 <ul>
                     <li><strong>Development Period:</strong> Weeks 4-5 (2 weeks)</li>
@@ -103,44 +157,61 @@ public class AnotherFeature : MonoBehaviour
                     <li><strong>Programming Language:</strong> C#</li>
                     <li><strong>Special Tools/Libraries:</strong> [Add any specific tools you used]</li>
                 </ul>
-            </div>
+            </div> -->
 
             <!-- Challenges & Solutions -->
-            <div class="challenges-section">
-                <h3>Development Challenges & Solutions</h3>
-                <div class="challenge-item">
-                    <h4>Challenge 1</h4>
-                    <p>Description of a technical challenge you faced and how you solved it.</p>
+            <!-- n -->
+
+            <!-- <div class="challenge-item">
+                    <h4>Fish Collision "Ping-Pong" Effect</h4>
+                    <p>
+                        Fish were bouncing unnaturally against walls and objects.
+                        I adjusted the collision response and movement vectors to smooth direction changes and avoid
+                        unrealistic rebounds.
+                    </p>
                 </div>
+
                 <div class="challenge-item">
-                    <h4>Challenge 2</h4>
-                    <p>Description of another challenge and your solution.</p>
+                    <h4>Environmental Integration</h4> -->
+            <!-- <p>
+                        Making fish enter naturally through windows and doors required synchronizing spatial mapping
+                        data with spawn logic.
+                        This significantly improved immersion.
+                    </p>
                 </div>
             </div>
+    </section>
 
-            <!-- Download Links -->
+    <div class="future-section">
+        <h3>Future Improvements</h3>
+        <ul>
+            <li>Add more advanced fish AI (schooling behavior, fleeing behavior).</li>
+            <li>Improve obstacle anticipation to avoid collisions before impact.</li>
+            <li>Add underwater visual effects (particles, bubbles, lighting filters).</li>
+            <li>Integrate spatial audio for a stronger immersive underwater atmosphere.</li>
+        </ul>
+    </div> -->
             <div class="download-section">
                 <h3>Download & Links</h3>
                 <div class="download-buttons">
-                    <a href="#" class="btn-download">Download Build</a>
-                    <a href="#" class="btn-github">GitHub Repository</a>
-                    <a href="index.html" class="btn-back">Back to Game Page</a>
+                    <a href="https://addemzbalah.github.io/SAE4.02/" class="btn-download">Web Site</a>
+                    <a href="https://github.com/AddemZbalah/SAE4.02" class="btn-github">GitHub Repository</a>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Spear Fisher - ADDEM's Version | SAE4.02 Project</p>
-            <div class="footer-links">
-                <a href="index.html">GAME</a>
-                <a href="addem.html">ADDEM</a>
-                <a href="celena.html">CELENA</a>
-                <a href="anna.html">ANNA</a>
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2026 Spear Fisher - ADDEM's Version | SAE4.02 Project</p>
+                <div class="footer-links">
+                    <a href="index.html">GAME</a>
+                    <a href="addem.html">ADDEM</a>
+                    <a href="celena.html">CELENA</a>
+                    <a href="anna.html">ANNA</a>
+                </div>
             </div>
-        </div>
-    </footer>
+        </footer>
 </body>
+
 </html>
